@@ -395,6 +395,12 @@ const bloom = document.createElementNS(NS,'g');
 bloom.setAttribute('id','bloom');
 svg.appendChild(bloom);
 
+// disco de respaldo: tapa los pequeños huecos entre pétalos para que no se asome el tallo
+const backing = document.createElementNS(NS,'circle');
+backing.setAttribute('cx',0); backing.setAttribute('cy',0); backing.setAttribute('r',165);
+backing.setAttribute('fill','#3d0a1a');
+bloom.appendChild(backing);
+
 // tallo y hojas (se inserta ANTES que la flor para que la punta quede oculta detrás de los pétalos)
 const stem = document.createElementNS(NS,'g');
 stem.setAttribute('id','stem');
@@ -446,7 +452,7 @@ document.getElementById('replay-btn').addEventListener('click', playBloom);
 
 /* ---------- contador de tiempo juntos ---------- */
 const metDate = new Date(2026, 4, 24);      // se conocieron
-const startDate = new Date(2026, 7, 31);    // empezaron a salir
+const startDate = new Date(2026, 7, 11);    // empezaron a salir
 function daysSince(d){
   return Math.floor((new Date() - d) / (1000*60*60*24));
 }
